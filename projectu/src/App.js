@@ -4,10 +4,11 @@ import { initializeUsers } from './reducers/users'
 import { setCurrentUser } from './reducers/currentUser'
 import { setToken } from './reducers/token'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { useQuery } from '@apollo/react-hooks'
 import NavBar from './components/NavBar'
 import Home from './components/pages/Home'
+import Results from './components/pages/Results'
 import PostPage from './components/pages/PostPage'
 import './static/css/base.css'
 import './static/css/navBar.css'
@@ -34,7 +35,6 @@ const App = (props) => {
   const allUserQuery = useQuery(ALL_USERS)
   const users = !allUserQuery.loading && props.users === null && allUserQuery.data ?
     allUserQuery.data.allUsers : null
-  console.log(users)
   useEffect(() => {
     if (user) {
       props.setCurrentUser(user)
@@ -58,9 +58,10 @@ const App = (props) => {
   return (
     <div className="wrapper">
       <Router>
-        <NavBar onQueryChange={onQueryChange} enteredSearch={enteredSearch} />
+        <NavBar query={query} onQueryChange={onQueryChange} enteredSearch={enteredSearch} />
         {/* <UserContainer /> */}
-        <Route exact path="/" render={() => <Home search={search} /> } />
+        <Route exact path="/" render={() => <Home onQueryChange={onQueryChange} enteredSearch={enteredSearch} /> } />
+        <Route path="/browse/:query" render={({match}) => <Results queryBrowsed={match.params.query} search={search} /> } />
         <Route path="/post/:id" render={({match}) => <PostPage postId={match.params.id} /> } />
         {/* <Route path="/slice/:name/:id" render={({match}) => <Slice slice={getSliceById(match.params.id)} /> } /> */}
       </Router>
