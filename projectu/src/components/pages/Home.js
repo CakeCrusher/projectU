@@ -1,52 +1,71 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { Link, withRouter } from 'react-router-dom'
 import '../../static/css/home.css'
-import NewPost from '../newPost/NewPost'
-import UserBanner from '../userBanner/UserBanner'
+import searchIcon from '../../static/svg/searchW.svg'
 
-const Home = (props) => {
-    const isSearchedFor = (post) => {
-        const skills = post.skillNames.map(so => so.name)
-        if (post.description.includes(props.search) || post.title.includes(props.search) || skills.includes(props.search)){
-            return true
+let Home = (props) => {
+    const [search, setSearch] = useState('_')
+
+    let handleKeyPress = (event) => {
+        console.log('asd')
+        if (event.key === 'Enter'){
+            props.enteredSearch()
+            props.history.push('/browse/search')
         }
-        return false
     }
-    const filteredPosts = props.posts.filter(p => isSearchedFor(p))
-
-    const postsToShow = filteredPosts.map(p => <NewPost post={p} />)
+    
     return (
         <div className="home-container">
             <div style={{height: "70px"}} />
-            <div className="home-content-container">
-                <div className="home-posts-container" >
-                    <div style={{gridColumn: '1/3'}}>
-                        <h1 style={{color: '#235e6f'}} className="home-content-title">posts</h1>
-                        <div className="custom-hr" style={{backgroundColor: '#235e6f', gridColumn: '1/3'}} />
-                    </div>
-                    {postsToShow}
-                    {postsToShow}
-
+            <h1 className="home-header">Im looking for:</h1>
+            <div className="home-dynamic-filler-container">
+                <h3 className="df-content df-starter">All with</h3>
+                <h3 className="df-content " style={{color: 'rgb(245,165,0)'}}>{search}</h3>
+                <h3 className="df-content df-finisher">skills</h3>
+                <h3 className="df-content df-starter">Users with</h3>
+                <h3 className="df-content " style={{color: 'rgb(1,152,173)'}}>{search}</h3>
+                <h3 className="df-content df-finisher">interests</h3>
+                <h3 className="df-content df-starter">Posts with titles containing</h3>
+                <h3 className="df-content " style={{color: 'rgb(16,79,37)'}}>{search}</h3>
+                <h3 className="df-content df-finisher"></h3>
+                <h3 className="df-content df-starter">Users with</h3>
+                <h3 className="df-content " style={{color: 'rgb(152,183,49)'}}>{search}</h3>
+                <h3 className="df-content df-finisher">or similar usernames</h3>
+                <h3 className="df-content df-starter">Find creatives with</h3>
+                <h3 className="df-content " style={{color: 'rgb(113,112,255)'}}>{search}</h3>
+                <h3 className="df-content df-finisher">skills</h3>
+            </div>
+            <div className="home-search-bar">
+                <Link to={`/browse/${'asd'}`} className="neutralize-link home-enter-search home-search-hover" onClick={() => props.enteredSearch()}>
+                    <img src={searchIcon} className="home-search-icon" alt="search" />
+                </Link>
+                <div className="home-search-hr" />
+                <input className="home-search-input" type="text" onChange={(e) => {
+                    props.onQueryChange(e)
+                    setSearch(e.target.value)
+                    }} onKeyPress={(e) => handleKeyPress(e)} />
+                <div className="home-search-hr" />
+                <div className="home-searching-for home-search-hover">
+                    all
                 </div>
-                {/* <div className="home-users-container">
-                    <div >
-                        <h1 className="home-content-title" style={{color: '#f5624d'}} >users</h1>
-                        <div className="custom-hr" style={{backgroundColor: '#f5624d', gridColumn: '1/3'}} />
-                    </div>
-                    <UserBanner />
-                    <UserBanner />
-                    <UserBanner />
-                </div> */}
+            </div>
+            <div className="home-description">
+                ProjectU is filling the gab between creatives. 
+                We help you find people with similar talents and skills to work on projects together. 
+                We believe that through simple communication, amazing things can come up.
             </div>
         </div>
     )
 }
 
-const mapStateToProps = (state) => {
-	return {
-        posts: state.posts
-	}
-}
+Home = withRouter(Home)
+
+//const mapStateToProps = (state) => {
+//	return {
+        
+//	}
+//}
 export default connect(
-    mapStateToProps
+    null
 )(Home)
