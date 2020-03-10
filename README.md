@@ -14,7 +14,7 @@ A visitor can also create a profile that can be filled out through through api w
 If a user is interested in working on a project they can request to work with them with a message and a proposition including information of what skills he offers manpower towards. He can also request to work with another user by sending them a message directly.
 </p>
 <h2>Site so far</h2>
-<img src="https://i.imgur.com/5eqF4Wm.gif" alt="Aimeos logo" title="Aimeos" align="center" height="400" />
+<img src="https://i.imgur.com/5eqF4Wm.gif" alt="Aimeos logo" title="Aimeos" align="center" width="90%" />
 <p>
 <h2>Do next</h2>
 
