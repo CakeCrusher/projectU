@@ -23,8 +23,14 @@ If a user is interested in working on a project they can request to work with th
 <img src="https://media.giphy.com/media/l0oeLCCS7XF4gK5DZV/giphy.gif" alt="Aimeos logo" title="Aimeos" align="center" width="50%"/>
 <h3>mobile</h3>
 <img src="https://media.giphy.com/media/YRbbNdN7CHnwAe9Kwx/giphy.gif" alt="Aimeos logo" title="Aimeos" align="center" width="50%"/>
-
-
+<h3>Colors</h3>
+<ul>
+ <li>#282828 - (base color)</li>
+ <li>#ffffff - (base color)</li>
+ <li>rgb(226,184,59) - (pending/warning)</li>
+ <li>rgb(52,166,95) - (go/add)</li>
+ <li>rgb(254,52,77) - (danger/remove)</li>
+</ul>
 <h2>Do next</h2>
 
 <ul>
