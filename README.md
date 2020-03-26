@@ -14,8 +14,17 @@ A visitor can also create a profile that can be filled out through through api w
 If a user is interested in working on a project they can request to work with them with a message and a proposition including information of what skills he offers manpower towards. He can also request to work with another user by sending them a message directly.
 </p>
 <h2>Site so far</h2>
-<img src="https://i.imgur.com/5eqF4Wm.gif" alt="Aimeos logo" title="Aimeos" align="center" width="90%" />
-<p>
+<h4><a href="https://www.youtube.com/watch?v=h8vdFbuFlp4&feature=youtu.be" padding-bottom="100px">https://www.youtube.com/watch?v=h8vdFbuFlp4&feature=youtu.be</a></h4>
+<h3>home and posts</h3>
+<img src="https://media.giphy.com/media/llOQZXOrsqK2GU5Aw5/giphy.gif" alt="Aimeos logo" title="Aimeos" align="center" width="50%"/>
+<h3>post page</h3>
+<img src="https://media.giphy.com/media/WsKwMzzQOsbwC8VvQO/giphy.gif" alt="Aimeos logo" title="Aimeos" align="center" width="50%"/>
+<h3>user</h3>
+<img src="https://media.giphy.com/media/l0oeLCCS7XF4gK5DZV/giphy.gif" alt="Aimeos logo" title="Aimeos" align="center" width="50%"/>
+<h3>mobile</h3>
+<img src="https://media.giphy.com/media/YRbbNdN7CHnwAe9Kwx/giphy.gif" alt="Aimeos logo" title="Aimeos" align="center" width="50%"/>
+
+
 <h2>Do next</h2>
 
 <ul>
